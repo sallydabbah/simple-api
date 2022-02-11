@@ -105,5 +105,5 @@
 
 (defn unique-visited-sites [data vistor-id]
   (let [visitor-data (filter #(= (:visitor_id %) vistor-id) data)
-        grouped-data (group-by #(select-keys % group-keys) visitor-data)]
+        grouped-data (group-by :site_url visitor-data)]
     (count grouped-data)))
