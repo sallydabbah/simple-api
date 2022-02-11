@@ -22,8 +22,8 @@
 (deftest calculate-succisive-test
   (testing "calculate-succisive testing"
     (let [data [{
-                 :visitor_id    "aa"
-                 :site_url      "ss"
+                 :visitor_id    "111"
+                 :site_url      "22"
                  :page_view_url ""
                  :timestamp     {:year    "2012"
                                  :month   "09"
@@ -34,8 +34,8 @@
 
                                  }},
                 {
-                 :visitor_id    "aa"
-                 :site_url      "ss"
+                 :visitor_id    "111"
+                 :site_url      "22"
                  :page_view_url ""
                  :timestamp     {:year    "2012"
                                  :month   "09"
@@ -45,3 +45,9 @@
                                  :seconds "12.000"}}]
           expected [-42.0]]
       (= expected (calculate-succisive data)))))
+
+(deftest aggregate-results-test
+  (testing "aggregate-results testing"
+    (let [data [-1.0 -3.0 23.0 -7.0]
+          expected-res 34.0]
+      (= expected-res (aggregate-results data)))))
