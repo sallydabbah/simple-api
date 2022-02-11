@@ -9,5 +9,5 @@
       (with-args {:mode mode})))
 
 (defn -main [& mode]
-  (print "start cost-etl meta data service in mode:" (first mode))
+  (print "start api-server service in mode:")
   (start (home-task (first mode))))
