@@ -1,11 +1,22 @@
-# home-task
+# Simple rest-api written in Clojure
 
-A Clojure library designed to ... well, that part is up to you.
+API data processor 
 
-## Usage
 
-FIXME
+## Running locally
 
+in order to run locally, add Clojure repl,that runs under Leiningen.
+you can also check tests under test directory.
+to start the service , run in Repl : (-main).
+
+## EndPoints 
+
+This service supports 4 GET endpoints:
+1. http://localhost:8080/get-unique-visited-sites?visitor-id=<ID>
+2. http://localhost:8080/get-num-of-sessions?site-url=<SITE_URL>
+3. http://localhost:8080/get-median-session-length?site-url=<SITE_URL>
+4. http://localhost:8080/health-check  
+  
 ## License
 
 Copyright © 2022 FIXME
