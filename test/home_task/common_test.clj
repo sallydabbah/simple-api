@@ -41,9 +41,9 @@
                                  :month   "09"
                                  :day     "17"
                                  :hours   "01"
-                                 :minutes "23"
+                                 :minutes "01"
                                  :seconds "12.000"}}]
-          expected [-42.0]]
+          expected [-22.0]]
       (= expected (calculate-succisive data)))))
 
 (deftest aggregate-results-test
