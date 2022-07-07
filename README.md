@@ -13,7 +13,12 @@ and read carefully the **PUT**	request.
   "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
 } 
 ```
-this is going to be our source **dataset** that we will send to the RestAPI endpoint. 
+this is going to be our source **dataset** that we will send to the RestAPI endpoint,this Json is saved in Blob Storage but it can be on-premise/another cloud storage account. 
+
+## Goals of this demo:
+
+Attach dataset as an input for the Rest Call dynamically.
+
 ## Building Pipeline:
 
 1. create a pipeline in ADF like so:
