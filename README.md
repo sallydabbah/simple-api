@@ -1,21 +1,53 @@
-# Simple rest-api written in Clojure
+# How to Create POST Request Using ADF Copy Activity
 
-API data processor 
+## Prerequisites 
+* For this tutorial, I'm using JsonPlaceHolder public API, please review it here  https://jsonplaceholder.typicode.com/ 
+and read carefully the **PUT**	request.
+* We want to update this post https://jsonplaceholder.typicode.com/posts/1 , we are going to change the title into "Fun with ADF" like so : 
+ 
+```
+{
+  "userId": 1,
+  "id": 1,
+  "title": "Fun With ADF",
+  "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
+} 
+```
+this is going to be our source **dataset** that we will send to the RestAPI endpoint. 
+## Building Pipeline:
+
+1. create a pipeline in ADF like so:
 
 
-## Running locally
+![image](https://user-images.githubusercontent.com/29353746/177719662-be3ec024-d0ab-4d10-b30a-8e4cfd7bcf04.png)
 
-in order to run locally, add Clojure repl,that runs under Leiningen.
-you can also check tests under test directory.
-to start the service , run in Repl : (-main).
+2. In move and transform tab,Drag the Copy Activity in the pipeline:
+ 
+ ![image](https://user-images.githubusercontent.com/29353746/177723298-d2ca2610-35f2-4be3-8448-28bd879c7634.png)
+ 
+3. in Source in copy activity, add the Json that we created above as a dataSet.
 
-## EndPoints 
+![image](https://user-images.githubusercontent.com/29353746/177727313-5c04e2ce-0b27-43f9-a575-998ec4dc73a7.png)
 
-This service supports 4 GET endpoints:
-1. http://localhost:8080/get-unique-visited-sites?visitor-id=<ID>
-2. http://localhost:8080/get-num-of-sessions?site-url=<SITE_URL>
-3. http://localhost:8080/get-median-session-length?site-url=<SITE_URL>
-4. http://localhost:8080/health-check  
+4. in Sink, click on New -> Services and apps -> click and add Rest Activity
+
+![image](https://user-images.githubusercontent.com/29353746/177727752-ea8953e4-ad63-46cb-9b12-3ff31e95c763.png)
+
+5. Click on linkedService -> new and fill the data of the JsonPlaceHolder API like so:
+
+![image](https://user-images.githubusercontent.com/29353746/177728401-23afad89-fa98-4a87-ac05-46087c16505c.png)
+
+Click on Create to create the Rest Activity.
+6. In Sink, Configure the Rest request, in our case its a **PUT** request.
+![image](https://user-images.githubusercontent.com/29353746/177728157-19c929ac-05b0-4c11-b380-1948d6cbc0e0.png)
+
+
+7. click on Debug and Validate and publish your piepline. 
+
+## Results:
+
+![image](https://user-images.githubusercontent.com/29353746/177728915-d38fc2e1-f10e-4348-aab1-d0391295402e.png)
+
   
 ## License
 
